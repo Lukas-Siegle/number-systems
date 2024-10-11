@@ -33,7 +33,7 @@
 		if (isCounting) {
 			interval = setInterval(() => {
 				incrementDecimal();
-			}, 1000);
+			}, 500);
 		} else {
             console.log("clear")
 			clearInterval(interval);
@@ -96,13 +96,13 @@
 		>
 		<button
 			on:click={decrementDecimal}
-			class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">-</button
+			class="px-4 py-2  bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors">-</button
 		>
 		<button
 			on:click={() => {
 				counting.set(!get(counting));
 			}}
-			class="px-4 py-2 bg-blue-500 w-20 text-white rounded hover:bg-blue-600 transition-colors"
+			class="px-4 py-2 {!$counting ? 'bg-blue-500' : 'bg-red-500'} w-20 {!$counting ? 'hover:bg-blue-600' : 'bg-red-700'} text-white rounded transition-colors"
 			>{#if $counting}
 				Stop
 			{:else}
@@ -113,7 +113,7 @@
 	<div class="space-y-4">
 		<div class="bg-gray-100 p-4 rounded-md">
 			<p class="text-sm font-medium text-gray-500 mb-1">Decimal:</p>
-			<p class="text-2xl font-bold">
+			<p class="text-2xl font-bold border-solid border-gray-200 border-b">
 				<input
 					type="text"
 					class="bg-gray-100 border-none focus:outline-none focus:ring-0 active:outline-none"
@@ -123,7 +123,7 @@
 		</div>
 		<div class="bg-gray-100 p-4 rounded-md">
 			<p class="text-sm font-medium text-gray-500 mb-1">Binary:</p>
-			<p class="text-2xl font-bold">
+			<p class="text-2xl font-bold border-solid border-gray-200 border-b">
 				0b<input
 					type="text"
 					class="bg-gray-100 border-none focus:outline-none focus:ring-0 active:outline-none"
@@ -133,7 +133,7 @@
 		</div>
 		<div class="bg-gray-100 p-4 rounded-md">
 			<p class="text-sm font-medium text-gray-500 mb-1">Hexadecimal:</p>
-			<p class="text-2xl font-bold">
+			<p class="text-2xl font-bold border-solid border-gray-200 border-b">
 				0x<input
 					type="text"
 					class="bg-gray-100 border-none focus:outline-none focus:ring-0 active:outline-none"
