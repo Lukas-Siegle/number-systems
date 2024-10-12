@@ -18,9 +18,9 @@ npm run dev
 docker build -t numbers .
 ```
 
-The Docker image is also available on Dockerhub:
+The Docker image is also available on Dockerhub: [Dockerhub Repository](https://hub.docker.com/repository/docker/lukas278/numbers/general)
 
 ```bash
 docker pull lukas278/numbers:latest
 ```
-[Dockerhub Repository](https://hub.docker.com/repository/docker/lukas278/numbers/general)
+There is also a [live version available](https://numbers.siegle.app).
