@@ -33,9 +33,8 @@
 		if (isCounting) {
 			interval = setInterval(() => {
 				incrementDecimal();
-			}, 500);
+			}, 750);
 		} else {
-            console.log("clear")
 			clearInterval(interval);
 		}
 	});
@@ -44,6 +43,10 @@
 		if (value.length == 0) {
 			value = '0';
 		}
+		if (value == "-1") {
+			value = '0'
+		}
+
 		let filtered: string = value.replace(/[^0-9]/gi, '');
 		current_number_dec.set(filtered);
 		current_number_bin.set(decimalToBinary(filtered));
@@ -83,7 +86,7 @@
 	}
 </script>
 
-<div class="max-w-md mx-auto mt-10 p-6 bg-white rounded-lg shadow-md">
+<div class="mx-auto mt-10 p-6 bg-white rounded-lg shadow-md max-w-md">
 	<div class="flex justify-center space-x-4 mb-6">
 		<button
 			on:click={incrementDecimal}
@@ -113,7 +116,7 @@
 	<div class="space-y-4">
 		<div class="bg-gray-100 p-4 rounded-md">
 			<p class="text-sm font-medium text-gray-500 mb-1">Decimal:</p>
-			<p class="text-2xl font-bold border-solid border-gray-200 border-b">
+			<p class="text-2xl font-bold border-solid border-gray-200 border-b overflow-hidden">
 				<input
 					type="text"
 					class="bg-gray-100 border-none focus:outline-none focus:ring-0 active:outline-none"
@@ -123,7 +126,7 @@
 		</div>
 		<div class="bg-gray-100 p-4 rounded-md">
 			<p class="text-sm font-medium text-gray-500 mb-1">Binary:</p>
-			<p class="text-2xl font-bold border-solid border-gray-200 border-b">
+			<p class="text-2xl font-bold border-solid border-gray-200 border-b overflow-hidden">
 				0b<input
 					type="text"
 					class="bg-gray-100 border-none focus:outline-none focus:ring-0 active:outline-none"
@@ -133,10 +136,10 @@
 		</div>
 		<div class="bg-gray-100 p-4 rounded-md">
 			<p class="text-sm font-medium text-gray-500 mb-1">Hexadecimal:</p>
-			<p class="text-2xl font-bold border-solid border-gray-200 border-b">
+			<p class="text-2xl font-bold border-solid border-gray-200 border-b overflow-hidden">
 				0x<input
 					type="text"
-					class="bg-gray-100 border-none focus:outline-none focus:ring-0 active:outline-none"
+					class="bg-gray-100 border-none focus:outline-none focus:ring-0 active:outline-none "
 					bind:value={$current_number_hex}
 				/>
 			</p>
